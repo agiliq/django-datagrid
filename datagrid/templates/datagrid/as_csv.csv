@@ -1,0 +1,3 @@
+{% for column in datagrid.columns %}"{{ column.label }}",{% endfor %}
+{% for row in datagrid.rows %}{% for datum in row.data %}"{{ datum }}",{% endfor %}
+{% endfor %}

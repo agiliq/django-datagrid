@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/misc/!svn/ver/12007/trunk/djblets/djblets/datagrid/templates/datagrid
+END
+cell.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/misc/!svn/ver/11671/trunk/djblets/djblets/datagrid/templates/datagrid/cell.html
+END
+datagrid.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/misc/!svn/ver/12007/trunk/djblets/djblets/datagrid/templates/datagrid/datagrid.html
+END
+paginator.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/misc/!svn/ver/11669/trunk/djblets/djblets/datagrid/templates/datagrid/paginator.html
+END
+column_header.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/misc/!svn/ver/11742/trunk/djblets/djblets/datagrid/templates/datagrid/column_header.html
+END
+listview.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/misc/!svn/ver/12004/trunk/djblets/djblets/datagrid/templates/datagrid/listview.html
+END

@@ -1,0 +1,83 @@
+{% load datagrid %}
+
+<div class="datagrid-wrapper" id="{{datagrid.id}}">
+
+<div class="datagrid-titlebox">
+  {% block datagrid_title %}
+    <h1 class="datagrid-title">{{datagrid.grid_header}}</h1>
+  {% endblock %}
+</div>
+
+<div class="controls">
+  {% if filter_fields %}
+    {% get_filter_form %}
+  {% endif %}
+
+  {% if search_fields %}
+    {% get_search_form %}
+  {% endif %}
+
+  {% if pagination_control_widget %}
+    {% render_pagination_size_widget %}
+  {% endif %}
+
+  {% if get_pdf_link %}
+    {% get_pdf_link %}
+  {% endif %}
+
+  {% if get_csv_link %}
+    {% get_csv_link %}
+  {% endif %}
+</div>
+
+<div class="datagrid-main">
+  <table class="datagrid">
+    <colgroup>
+      {% for column in datagrid.columns %}
+        <col class="{{column.id}}"{% ifnotequal column.width 0 %} width="{{column.width}}%"{% endifnotequal %} />
+      {% endfor %}
+      <col class="datagrid-customize" />
+    </colgroup>
+    <thead>
+      <tr class="datagrid-headers">
+        {% for column in datagrid.columns %}
+          {{column.get_header}}
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% if datagrid.rows %}
+        {% for row in datagrid.rows %}
+          <tr class="{% cycle odd,even %}">
+          {%  for cell in row.cells %}
+            {{cell}}
+          {% endfor %}
+        {% endfor %}
+      {% else %}
+        <tr><td><p>We do not have any data for your selection.</p></td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+
+<table class="datagrid-menu" id="{{datagrid.id}}-menu" style="display:none;position:absolute;">
+  {% for column in datagrid.all_columns %}
+    {% with column.toggle_url as toggle_url %}
+      <tr class="{{column.id}} {% cycle 'even' 'odd' %} ">
+        <td><div class="datagrid-menu-checkbox">{% if column.active %}<img src="{{MEDIA_URL}}datagrid/images/datagrid/checkmark.png" width="8" height="8" border="0" alt="X" />{% endif %}</div></td>
+        <td class="datagrid-menu-label"><a href="#">
+          {% if column.image_url %}
+            <img src="{{column.image_url}}" width="{{column.image_width}}" height="{{column.image_height}}" alt="{{column.image_alt}}" />
+          {% endif %}
+          {{column.detailed_label|default_if_none:""}}</a>
+        </td>
+      </tr>
+    {% endwith %}
+  {% endfor %}
+</table>
+
+{% if is_paginated %}
+  {% paginator %}
+{% endif %}
+
+</div>

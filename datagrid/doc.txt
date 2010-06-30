@@ -1,0 +1,157 @@
+
+Field Types
+    
+    Column
+    
+        options
+        
+            label
+                label to be displayed in the table header
+                
+            db_field
+                used to specify what the field is defined as in django-models, if the 
+                column name in datagrid is different from the field name defined in django-models
+                
+            image_url
+                url of the image do be displayed next to the header
+                ex: /site_media/blogango/images/date_icon.png
+                or  http://media.agiliq.com/images/terminal.png
+                  
+            image_width
+                if image_url is set, 
+                image_width defines the width of the image do be displayed next to the header
+                
+            image_height
+                if image_url is set, 
+                image_height defines the height of the image do be displayed next to the header
+                
+            image_alt
+                if image_url is set, 
+                image_alt defines the alt text to be shown if the image does not load
+                
+            shrink
+                Boolean True or False, default False
+                reduce the width of column
+                
+            expand
+                Boolean True or False, default False
+                expand the width of column
+                
+            sortable
+                Boolean True or False, default False
+                sort the table data based on this column value
+                
+            default_sort_dir
+                default sort is descending order, for value 0
+                default_sort_dir = 1, sort in ascending order
+                
+            link
+                Boolean True or False, default False
+                the obj should have get_absolute_url or can pass link_func which generates the url
+                 
+            link_func
+                link_func(obj, rendered_data)
+                if link=True, given link_func is used to get the value of url
+                return value can be absolute url or relative url
+                
+            cell_clickable
+                Boolean True or False
+                if the cell is link, clicking anywhere inside the cell will redirect to the linked url
+                
+            css_class
+                does not apply to the header, applies only to the data cells
+                
+            data_func
+                if the display text is
+                passes the value of the field as argument to the given function
+    
+    
+    DateTimeColumn
+    
+        options
+        
+            same as the Column field and one optional argument
+                
+            format
+                formats the date same as django.template.filter.date
+        
+    DateTimeSinceColumn
+    
+        options
+        
+            same as the Column field
+        
+        uses django.template.defaultfilters.timesince to format the date
+        
+    NonDatabaseColumn
+        Helpful for displaying a column not specified in the model
+        
+        options
+            same as the Column field
+            
+            if data_func is specified uses the data_func to get the value of column
+            otherwise label of the column is returned as the value
+            
+            object of the current row is passed as argument to the data_func function
+            
+  
+Grids
+
+    DataGrid
+        A representation of a list of objects, sorted and organized by
+        columns. The sort order and column lists can be customized. allowing
+        users to view this data however they prefer.
+    
+        This is meant to be subclassed for specific uses. The subclasses are
+        responsible for defining one or more column types. It can also set
+        one or more of the below specified optional arguments.
+        
+        required arguments
+        
+            request
+                the request object
+                
+            queryset 
+                A QuerySet that represents the objects.
+        
+        optional arguments
+                
+            title="", 
+                title of the grid
+                
+            extra_context={}
+                extra context to be passed to the template
+                useful when DataGrid's render_to_response method is called.
+            
+            optimize_sorts
+                Whether or not to optimize queries when
+                using multiple sorts. This can offattr_metaer a
+                speed improvement, but may need to be
+                turned off for more advanced querysets
+                (such as when using extra()).
+                The default is True.
+             
+            listview_template
+                template to be used to render the list view 
+                default is 'datagrid/listview.html',
+             
+            column_header_template
+                template to be used to render the column headers 
+                default is 'datagrid/column_header.html',
+             
+            cell_template
+                template to be used to render the data of each cell 
+                default is 'datagrid/cell.html'
+        
+        methods
+        
+            render_listview
+                Renders the standard list view of the grid.
+                This can be called from templates.
+                
+            render_listview_to_response
+                Renders the listview to a response, preventing caching in the
+                process.
+            
+            render_to_response
+                Renders a template containing this datagrid as a context variable.    

@@ -1,0 +1,11 @@
+<form id="paginationhandler">
+    <select name="page_size">
+        {% for size in page_sizes %}
+        <option value="{{ size }}" {% ifequal size current_page_size %}selected="selected"{% endifequal %}>{{ size }}</option>
+        {% endfor %}
+        {% for var in getpagingvars %}
+        <input type="hidden" name="{{ var.0 }}" value={{ var.1 }} />
+        {% endfor %}
+    </select>
+    <input type="submit" name="submit" value="Results per page" />
+</form>

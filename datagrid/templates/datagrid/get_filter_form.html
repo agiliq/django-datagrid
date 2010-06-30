@@ -1,0 +1,15 @@
+  <form>
+  Filter list by the
+  {% for field, options in filtering_options %}
+  <strong>
+   {{ field }}
+   </strong>
+    <select name="{{ field }}">
+     {% for option in options %}
+       <option name="{{ field }}" value="{{ option.pk }}" />{{ option }}</option>
+     {% endfor %}
+    </select>
+  {% endfor %}
+
+  <input type="submit" name="submit" value="filter" />
+  </form>

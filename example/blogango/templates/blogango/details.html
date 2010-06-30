@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load gravatar %}
+
+{% block title %}
+    {{block.super}} - {{entry.title}}
+{% endblock %}
+
+{% block content %}
+<div class="leftblock"> 
+    <h1>{{ entry.title }}</h1> 
+    
+    {% include 'blogango/entry_controls.html' %} 
+    
+    <div class="postcontent"> 
+        <p>{{ entry.text|safe }}</p> 
+    </div>
+    <div class="moreinfo"> <br/> </div> 
+</div>
+
+<div class="tags">
+{% for tag in tags %}
+    <a href="{{tag.get_absolute_url}}">{{tag.tag_txt}}</a>
+{% endfor %}
+</div>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,8 @@
+      <form>
+      {% for name, value in getvars %}
+        <input type="hidden" name="{{ name }}" value="{{ value }}"/>
+      {% endfor %}
+
+      <input type="text" name="q" value="{{ searchterm }}"/>
+      <input type="submit" name="submit" value="search" />
+      </form>

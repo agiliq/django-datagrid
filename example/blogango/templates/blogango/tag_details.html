@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{block.super}} - Tags
+{% endblock %}
+
+{% block content %}
+<div class="leftblock">
+    <h1>Post with tag: {{ tag.name }}</h1>
+    <div class="postdetails">
+    <ul>
+    {% for entry in entries %}
+	    <li>
+	        <a href="{{entry.get_absolute_url}}">{{entry.title}}</a> <br />
+	    </li>
+	{% endfor %}
+    </ul>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/misc/!svn/ver/12143/trunk/djblets/djblets/datagrid
+END
+grids.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/misc/!svn/ver/12143/trunk/djblets/djblets/datagrid/grids.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/misc/!svn/ver/11661/trunk/djblets/djblets/datagrid/__init__.py
+END
+tests.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/misc/!svn/ver/11852/trunk/djblets/djblets/datagrid/tests.py
+END
