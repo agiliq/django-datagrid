@@ -95,4 +95,5 @@ INSTALLED_APPS = (
     'blogango',
     'datagrid',
     'blog_grids',
+    'django_xmlrpc',
 )
