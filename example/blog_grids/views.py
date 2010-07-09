@@ -1,5 +1,3 @@
-# Create your views here.
-
 from datagrid.grids import *
 from blogango.models import BlogEntry
 
