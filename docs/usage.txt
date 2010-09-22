@@ -15,7 +15,7 @@ Using the grid
 ----------------
 
 To use the grid you need to pass a queryset. The number of rows shown in the grid is same as that in the queryset.
-Each elemnt from the queryset is made avaialbel to each `Column` for the grid, to let it decide, how it needs to be rendered.
+Each element from the queryset is made avaialble to each `Column` for the grid, to let it decide how to render the cell.
 
 
 Types of columns
