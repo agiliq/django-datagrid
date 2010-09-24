@@ -33,7 +33,13 @@ view remains about same.
         books = Book.objects.all()
         return RealGrid(request, books).render_to_response("mylibrary/real.html")
         
-        
+3. Cool lets add sorting.
+
+    class RealGrid(DataGrid):
+        name = Column(sortable = True)
+        publisher = Column(sortable = True)
+        recommended_by = Column(sortable = True)
+
 
 
 
