@@ -9,3 +9,7 @@ class RealGrid(DataGrid):
     publisher = Column()
     recommended_by = Column()
     
+class SortableGrid(DataGrid):
+    name = Column(sortable = True)
+    publisher = Column(sortable = True)
+    recommended_by = Column(sortable = True)

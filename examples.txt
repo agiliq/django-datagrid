@@ -32,6 +32,8 @@ view remains about same.
     def real(request):
         books = Book.objects.all()
         return RealGrid(request, books).render_to_response("mylibrary/real.html")
+        
+        
 
 
 
