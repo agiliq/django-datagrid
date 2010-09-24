@@ -1,0 +1,17 @@
+Examples
+-------------------
+
+1. Simplest
+
+1.1 Create a Grid:
+
+    class SimpleGrid(DataGrid):
+        name = NonDatabaseColumn("Hello")
+
+1.2 In the views
+    
+    def simple(request):
+        books = Book.objects.all()
+        return SimpleGrid(request, books).render_to_response("mylibrary/simple.html")
+    
+This creates a view with as many rows as the elemns in `books` queryset.
