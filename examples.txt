@@ -15,3 +15,6 @@ Examples
         return SimpleGrid(request, books).render_to_response("mylibrary/simple.html")
     
 This creates a view with as many rows as the elemns in `books` queryset.
+
+
+
