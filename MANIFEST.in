@@ -1,0 +1,5 @@
+include README
+include LICENSE
+recursive-include datagrid/templates * 
+recursive-include example *
+
