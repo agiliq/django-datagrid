@@ -1,0 +1,45 @@
+Examples
+-------------------
+
+1. Simplest
+
+1.1 Create a Grid:
+
+    class SimpleGrid(DataGrid):
+        name = NonDatabaseColumn("Hello")
+
+1.2 In the views
+    
+    def simple(request):
+        books = Book.objects.all()
+        return SimpleGrid(request, books).render_to_response("mylibrary/simple.html")
+    
+This creates a view with as many rows as the elemns in `books` queryset.
+
+2. A little better.
+
+OK that grid is useless, lets createa one with real data.
+
+    class RealGrid(DataGrid):
+        name = Column()
+        publisher = Column()
+        recommended_by = Column()
+
+This will show the attributes named `name`, `publisher` and `recommended_by`.
+view remains about same.
+
+
+    def real(request):
+        books = Book.objects.all()
+        return RealGrid(request, books).render_to_response("mylibrary/real.html")
+        
+3. Cool lets add sorting.
+
+    class RealGrid(DataGrid):
+        name = Column(sortable = True)
+        publisher = Column(sortable = True)
+        recommended_by = Column(sortable = True)
+
+
+
+

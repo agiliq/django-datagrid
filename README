@@ -1,1 +1,4 @@
-A django based datagrid. Example project included.
+A Django based datagrid.
+
+Based on the datagrid from Review-board.
+

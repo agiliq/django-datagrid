@@ -1,0 +1,35 @@
+To create a Grid, you need to subclass DataGrid.
+
+`class BlogGrid(DataGrid)`
+
+This needs to add the columns which shown in datagrid.
+
+class BlogGrid(DataGrid):
+    created_by = Column(sortable=True,
+                        link=True,
+                        cell_clickable=True,
+                        css_class='red')
+    ....
+
+Using the grid
+----------------
+
+To use the grid you need to pass a queryset. The number of rows shown in the grid is same as that in the queryset.
+Each element from the queryset is made avaialble to each `Column` for the grid, to let it decide how to render the cell.
+
+
+Types of columns
+------------------------
+
+`Column`
+`DateTimeColumn`
+`DateTimeSinceColumn`
+`NonDatabaseColumn`
+
+Common arguments to each column.
+--------------------------------------
+
+`link`: Whether objects should be linked form the column.
+`Sortable`: Whether column header shouold be sortable.
+
+
