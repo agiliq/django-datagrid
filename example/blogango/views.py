@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 from django.template import RequestContext
 from django.core.paginator import Paginator
 from django.core.urlresolvers import reverse
-from django.views.generic.date_based import archive_month
+# from django.views.generic.date_based import archive_month
+from django.views.generic.dates import MonthArchiveView
 from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -289,17 +290,22 @@ def author(request, username):
     return render('blogango/author.html', request, {'author': author})
     
     
-def monthly_view(request, year, month):
-    # print year, month
-    queryset = BlogEntry.objects.filter(is_page=False, is_published=True)
-    return archive_month(request=request, 
-                         template_name='blogango/archive_view.html', 
-                         year=year, 
-                         month=month, 
-                         queryset=queryset, 
-                         date_field='created_on', 
-                         extra_context=_get_sidebar_objects(request))
+# def monthly_view(request, year, month):
+#     # print year, month
+#     queryset = BlogEntry.objects.filter(is_page=False, is_published=True)
+#     return archive_month(request=request, 
+#                          template_name='blogango/archive_view.html', 
+#                          year=year, 
+#                          month=month, 
+#                          queryset=queryset, 
+#                          date_field='created_on', 
+#                          extra_context=_get_sidebar_objects(request))
              
+class MonthlyArcheiveView(MonthArchiveView):
+    queryset = BlogEntry.objects.filter(is_page=False, is_published=True)
+    date_field = "created_on"
+    template_name='blogango/archive_view.html'
+
 
 #Helper methods.
 def _is_blog_installed():

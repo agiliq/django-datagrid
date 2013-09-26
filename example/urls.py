@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
@@ -15,7 +15,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
-    (r'^blog/', include('blogango.urls')),
+    # (r'^blog/', include('blogango.urls')),
 )
 
 urlpatterns += patterns('blog_grids.views',

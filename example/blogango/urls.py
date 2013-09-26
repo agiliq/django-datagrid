@@ -4,6 +4,7 @@ from django.contrib.sitemaps import GenericSitemap
 
 from blogango import feeds
 from blogango.models import BlogEntry
+from blogango.views import MonthlyArcheiveView
 
 blog_info_dict = {
     'queryset': BlogEntry.objects.filter(is_published=True),
@@ -45,7 +46,8 @@ urlpatterns += patterns('django.contrib.sitemaps.views',
 
 # Archive view
 urlpatterns += patterns('blogango.views',
-    url(r'^archive/(?P<year>\d+)/(?P<month>\w+)/$', 'monthly_view', name='blogango_archives')
+    # url(r'^archive/(?P<year>\d+)/(?P<month>\w+)/$', 'monthly_view', name='blogango_archives')
+    url(r'^archive/(?P<year>\d+)/(?P<month>\w+)/$', MonthlyArcheiveView.as_view(), name='blogango_archives')
 )
 
 urlpatterns += patterns('django_xmlrpc.views',
