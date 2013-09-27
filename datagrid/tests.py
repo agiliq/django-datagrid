@@ -129,7 +129,7 @@ class DataGridTest(TestCase):
         self.datagrid.load_state()
 
         self.assertEqual(len(self.datagrid.rows), self.datagrid.paginate_by)
-        self.assertEqual(len(self.datagrid.rows[0]['cells']), 2)
+        self.assertEqual(len(self.datagrid.rows[0]['cells']), 1)
 
         # Exercise the code paths when rendering
         self.datagrid.render_listview()
