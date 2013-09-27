@@ -11,7 +11,7 @@ install:
 # command to run tests
 script: 
   -  python example/manage.py test blog_grids
-  -  coverage run --source="." project/manage.py test jobs
+  -  coverage run --source="." example/manage.py test blog_grids
 
 after_success:
   - coveralls  
