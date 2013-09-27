@@ -1,0 +1,17 @@
+language: python
+
+python:
+  - "2.7"
+
+# command to install dependencies
+install: 
+  -  pip install -r example/requirements.txt --use-mirrors
+  -  pip install coveralls --use-mirrors
+
+# command to run tests
+script: 
+  -  python example/manage.py test blog_grids
+  -  coverage run --source="." project/manage.py test jobs
+
+after_success:
+  - coveralls  
