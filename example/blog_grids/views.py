@@ -1,5 +1,5 @@
 from datagrid.grids import *
-from blogango.models import BlogEntry
+from blog_grids.models import Employee
 
 def grid_data_func(value):
     return value.upper() 
@@ -46,7 +46,6 @@ class BlogGrid(DataGrid):
     col1 = NonDatabaseColumn(sortable=True, link=True, data_func=non_db_col_value)
 
 def blog_grid(request):
-    posts = BlogEntry.objects.all()
-    blog_grid = BlogGrid(request=request, queryset=posts, title='Blog Grid View')
-
+    employees = Employee.objects.all()
+    blog_grid = BlogGrid(request=request, queryset=employees, title='Blog Grid View')
     return blog_grid.render_to_response('blog_grid/blog_grid.html', {'blog_grid': blog_grid})
