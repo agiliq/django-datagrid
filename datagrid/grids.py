@@ -500,7 +500,7 @@ class DataGrid(object):
         if sort_str:
             self.sort_list = sort_str.split(',')
         else:
-            self.sort_list = [self.default_sort]
+            self.sort_list = self.default_sort
             sort_str = ",".join(self.sort_list)
 
 
