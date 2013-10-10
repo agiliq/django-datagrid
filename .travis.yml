@@ -5,7 +5,7 @@ python:
 
 # command to install dependencies
 install: 
-  -  pip install -r example/requirements.txt --use-mirrors
+  -  pip install -r books/requirements.txt --use-mirrors
   -  pip install coveralls --use-mirrors
 
 # command to run tests
