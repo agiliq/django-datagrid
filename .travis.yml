@@ -10,8 +10,7 @@ install:
 
 # command to run tests
 script: 
-  -  python example/manage.py test blog_grids
-  -  coverage run --source="." example/manage.py test blog_grids
+  -  coverage run --source="." books/manage.py test mylibrary
 
 after_success:
   - coveralls  
